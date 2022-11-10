@@ -1,4 +1,2 @@
 # Ignore the dataset files
-lending_topredict.csv
-lending_train.csv
-sample_submission.csv
+*.csv
