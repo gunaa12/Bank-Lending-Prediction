@@ -10,7 +10,7 @@ loanpaidcolumn. There were over a million data points to train on. However, this
 a lot of pre-processing as you will see soon. Furthermore, I use a gradient boosted decision tree to
 achieve an accuracy of over 80%.
 
-## 2 Pre-processing performed
+## 2 Pre-processing
 
 To pre-process the data, many steps were taken. Here are the major things:
 
