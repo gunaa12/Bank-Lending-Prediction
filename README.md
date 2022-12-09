@@ -75,3 +75,6 @@ is the following:
 
 So overall, the model is boosting decision trees and then adding gradient descent in order to optimize
 the weights.
+
+## Issues
+K-means clustering creating clusters with size 1 even if # of clusters is not set to (n - 1).
