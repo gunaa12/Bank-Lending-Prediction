@@ -20,37 +20,17 @@ To pre-process the data, many steps were taken. Here are the major things:
 categorical or numerical) of that column.
 4) Next, new columns that provided more prediction power through having a high correlation with
 loan paid were added. For example, income to loan amount ratio was added.
-5) As an extension of the previous step, I removedficoscorerangehighandficoscorerangelow
-as they were very highly correlated. I still kept the information provided by this column by adding a
-new column with the average of high and low. Furthermore, I added another column that contained
-the range between the high and low.
-6) Next, I converted the loanduration and employmentlength columns from strings to corresponding
-integers.
-7) I then encoded ordinal columns. To find what each value should be encoded with, I performed
-t-tests.
-8) For columns with lots of unique values, I simplified them by keeping only the 5 most common set
-all other values to other.
-9) To encode the states column, one-hot encoding was not a viable option as there are a lot of unique
-values. To get around this, I gave them a number between 1 and 50 based on the average. This may
-cause what is referred to as a data leakage problem, but I was not sure how else to encode this column.
-10) The zip code columns also required special encoding as it had lots of unique values. To encode
-here, I grouped zip codes based on the loan paid average. There were 5 categories: bad, mid bad, mid,
-mid good, and good.
+5) As an extension of the previous step, I removed ficoscorerangehigh and ficoscorerangelow as they were very highly correlated. I still kept the information provided by this column by adding a new column with the average of high and low. Furthermore, I added another column that contained the range between the high and low.
+6) Next, I converted the loanduration and employmentlength columns from strings to corresponding integers.
+7) I then encoded ordinal columns. To find what each value should be encoded with, I performed t-tests.
+8) For columns with lots of unique values, I simplified them by keeping only the 5 most common set all other values to other.
+9) To encode the states column, one-hot encoding was not a viable option as there are a lot of unique values. To get around this, I gave them a number between 1 and 50 based on the average. This may cause what is referred to as a data leakage problem, but I was not sure how else to encode this column.
+10) The zip code columns also required special encoding as it had lots of unique values. To encode here, I grouped zip codes based on the loan paid average. There were 5 categories: bad, mid bad, mid, mid good, and good.
 11) To complete encoding, I performed one hot encoding on any remaining categorical columns.
-12) An interesting thing I noticed when exploring the data was with the monthssincelastdelinq col-
-umn. When someone did not have any delinquency, it seemed that they had a value of 0. Since this
-was ordinally wrong, I changed all 0s to be the new maximum value, which was much greater than the
-original max.
+12) An interesting thing I noticed when exploring the data was with the monthssincelastdelinq column. When someone did not have any delinquency, it seemed that they had a value of 0. Since this was ordinally wrong, I changed all 0s to be the new maximum value, which was much greater than the original max.
 13) Finally, I normalized all the columns that I through were appropriate.
 
-Note: When doing the pre-proccessing for the validation dataset, I made sure to not remove any
-columns with missing values. Furthermore, I filled in the missing values based on the mode and me-
-dian of the training dataset. Furthermore, I normalized based on the mean and standard deviation of
-
-### 1
-
-
-the training dataset as well to maintain consistency.
+Note: When doing the pre-proccessing for the validation dataset, I made sure to not remove any columns with missing values. Furthermore, I filled in the missing values based on the mode and median of the training dataset. Furthermore, I normalized based on the mean and standard deviation of the training dataset as well to maintain consistency.
 
 ## 3 Knowledge Representation
 
@@ -71,14 +51,14 @@ Score(k
 thiteration)
 = ΣJj=1(Σi∈Ij(h(ik)+α∗wj)α∗wj) + Ω(α∗fk)
 Here, the h term is the residual between the correct and predicted y values. Then, the Omega term
-is for regularization. J is the number of leaves in the tree of thekthiteration.Ijrepresents the data
+is for regularization. J is the number of leaves in the tree of thekthiteration. I represents the data
 points that end up injthleaf. Next, thewjrepresents the weights of thejthleaf node. Finally,αis the
 learning rate/contribution rate of each tree. This score function helps the model both building out the
 trees and optimize the weights of the leaf nodes. This is because the h term represents how good the
 tree is without the weights. Then the weights are presented by theα∗wjterm. Furthermore, to pre-
 vent weights from making the model too complex, there is a regularization term containing the weights.
 
-I did not use domain adaptation.
+**Domain adaptation is a work in progress.**
 
 ## 5 Search Method
 
