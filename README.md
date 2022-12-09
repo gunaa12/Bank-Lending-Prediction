@@ -8,7 +8,7 @@ we got many different pieces of information like annual income, employment, race
 to use race to make loan decisions, it was immediately removed.) Furthermore, theytrainis the
 loanpaidcolumn. There were over a million data points to train on. However, this data set requires
 a lot of pre-processing as you will see soon. Furthermore, I use a gradient boosted decision tree to
-achieve an accuracy of over 80%.
+achieve an accuracy of over 80.5%.
 
 ## 2 Pre-processing
 
