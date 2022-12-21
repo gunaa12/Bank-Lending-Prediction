@@ -1,5 +1,5 @@
 # Bank Loan Prediction
-## Last Updated: December 8, 2022
+## Last Updated: December 8, 2022 (still work in progress)
 
 ## 1 Introduction
 
